@@ -1,6 +1,7 @@
 #importing libraries
 import pandas as pd
 from flask import Flask, render_template, request
+from flask_cors import cross_origin
 
 #declare the app
 app = Flask(__name__)
