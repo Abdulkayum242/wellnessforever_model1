@@ -2,6 +2,7 @@
 import pandas as pd
 from flask import Flask, render_template, request
 from flask_cors import cross_origin
+import numpy as np
 
 #declare the app
 app = Flask(__name__)
@@ -36,7 +37,7 @@ def score():
     
     ####
     Rent_per_Sq_Ft	= Rent / Sq_Ft
-    bins= pd.cut(Rent_per_Sq_Ft, bins=[0,100,150,200,300,400,10000],labels=['0-99','100-149','150-199','200-299','300-399','above'],right=True)
+    bins= pd.cut(Rent_per_Sq_Ft, bins=np.array([0,100,150,200,300,400,10000]),labels=np.array(['0-99','100-149','150-199','200-299','300-399','above']),right=True)
 
     if bins == 0-99:
         target_HIG_Household_Count= 3297
