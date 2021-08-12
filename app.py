@@ -6,13 +6,15 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 #start the app route which is '/'
-@app.route('/', methods=['GET'])
+@app.route('/', methods=["GET"])
+@cross_origin()
 #declare the main function
 def main():
     return render_template('index.html')
 
 #form submission route
-@app.route('/score',methods=['GET','POST'])
+@app.route('/score',methods=["GET","POST"])
+@cross_origin()
 def score():
     #extract the data from post request
     HIG_Household_Count = float(request.form['HIG_Household_Count'])
