@@ -6,13 +6,13 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 #start the app route which is '/'
-@app.route('/', methods=['GET'])
+@app.route('/', methods=["GET"])
 #declare the main function
 def main():
-    return render_template('index.html')
+    return render_template("index.html")
 
 #form submission route
-@app.route('/score',methods=['POST'])
+@app.route('/score',methods=["Get","POST"])
 def score():
     #extract the data from post request
     HIG_Household_Count = float(request.form['HIG_Household_Count'])
@@ -192,4 +192,7 @@ def score():
 
 
     return render_template('score.html', score = final_score)
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
