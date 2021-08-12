@@ -12,7 +12,7 @@ def main():
     return render_template('index.html')
 
 #form submission route
-@app.route('/score',methods=['POST'])
+@app.route('/score',methods=['GET','POST'])
 def score():
     #extract the data from post request
     HIG_Household_Count = float(request.form['HIG_Household_Count'])
@@ -192,4 +192,7 @@ def score():
 
 
     return render_template('score.html', score = final_score)
+
+if __name__ == "__main__":
+    app.run(debug=True)
 
